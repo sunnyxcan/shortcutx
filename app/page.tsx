@@ -9,13 +9,13 @@ export default function Home() {
       <div className="mb-16 max-w-2xl text-center">
         <div className="mb-6 inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400 backdrop-blur-md">
           <Sparkles className="mr-2 h-3 w-3" />
-          <span>ShortcutX Parser Suite v2.0</span>
+          <span>ShortcutX Parser Tools v1.0</span>
         </div>
         <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
-          Parser Tools <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Dashboard</span>
+          ShortcutX <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Dashboard</span>
         </h1>
         <p className="text-lg leading-relaxed text-slate-400">
-          Platform terpusat untuk analisis data finansial. Pilih modul parsing di bawah ini untuk memulai pemrosesan data presisi tinggi.
+          Shortcut tools untuk mutasi BCA dan AutoWD Admin & Power dalam satu dashboard terintegrasi.
         </p>
       </div>
 

@@ -1,0 +1,33 @@
+<svg
+  width="120"
+  height="120"
+  viewBox="0 0 120 120"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="xGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <rect
+    x="52"
+    y="10"
+    width="16"
+    height="100"
+    rx="4"
+    transform="rotate(45 60 60)"
+    fill="url(#xGradient)"
+  />
+
+  <rect
+    x="52"
+    y="10"
+    width="16"
+    height="100"
+    rx="4"
+    transform="rotate(-45 60 60)"
+    fill="url(#xGradient)"
+  />
+</svg>

@@ -153,7 +153,7 @@ export default function BcaParser() {
                 
                 <div className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-5 backdrop-blur-sm">
                    <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-emerald-500/5 blur-2xl transition-all group-hover:bg-emerald-500/10"></div>
-                  <span className="relative z-10 text-xs font-bold uppercase tracking-wider text-slate-500">Total Nominal Valid</span>
+                  <span className="relative z-10 text-xs font-bold uppercase tracking-wider text-slate-500">Total Nominal Kredit</span>
                   <div className="relative z-10 mt-2 text-3xl font-bold text-blue-400">{formatRupiah(totalAmount)}</div>
                 </div>
               </div>

@@ -1,7 +1,9 @@
 // app/page.tsx
 
+// app/page.tsx
+
 import Link from 'next/link';
-import { CreditCard, Layers, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
+import { CreditCard, Layers, ShieldCheck, ArrowRight, Sparkles, Wallet } from 'lucide-react';
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
@@ -12,17 +14,17 @@ export default function Home() {
       <div className="mb-16 max-w-2xl text-center">
         <div className="mb-6 inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400 backdrop-blur-md">
           <Sparkles className="mr-2 h-3 w-3" />
-          <span>ShortcutX Parser Tools v1.0</span>
+          <span>ShortcutX Parser Tools v1.1</span>
         </div>
         <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
           ShortcutX <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Dashboard</span>
         </h1>
         <p className="text-lg leading-relaxed text-slate-400">
-          Shortcut tools untuk mutasi BCA dan Withdraw Operate PNG & Power dalam satu dashboard terintegrasi.
+          Shortcut tools untuk mutasi BCA, Withdraw IDN, Withdraw Operate PNG & Power dalam satu dashboard terintegrasi.
         </p>
       </div>
 
-      <div className="grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="grid w-full max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
         <Link href="/bca" className="group relative block">
           <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-b from-blue-500/20 to-transparent opacity-0 transition duration-300 group-hover:opacity-100 blur-sm"></div>
           <div className="relative flex h-full flex-col items-start rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm transition-all duration-300 hover:border-blue-500/50 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-blue-900/20">
@@ -31,9 +33,26 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Mutasi BCA</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Konversi data mutasi rekening BCA menjadi format kompatibel sheets Deposit untuk spreadsheets.
+              Konversi data transaksi mutasi rekening BCA menjadi format kompatibel sheets Deposit.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-blue-400 group-hover:text-blue-300">
+              <span>Akses Tool</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </div>
+          </div>
+        </Link>
+
+        <Link href="/idn" className="group relative block">
+          <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-b from-cyan-500/20 to-transparent opacity-0 transition duration-300 group-hover:opacity-100 blur-sm"></div>
+          <div className="relative flex h-full flex-col items-start rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/50 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-cyan-900/20">
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 shadow-inner shadow-cyan-500/20 transition-transform duration-300 group-hover:scale-110 group-hover:bg-cyan-500/20 group-hover:text-cyan-300">
+              <Wallet className="h-7 w-7" />
+            </div>
+            <h2 className="mb-3 text-xl font-bold text-slate-100">Withdraw IDN</h2>
+            <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
+              Konversi data transaksi withdraw IDN menjadi format kompatibel sheets Withdraw.
+            </p>
+            <div className="flex w-full items-center text-sm font-semibold text-cyan-400 group-hover:text-cyan-300">
               <span>Akses Tool</span>
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
@@ -48,7 +67,7 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Withdraw Operate PNG</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Konversi withdraw operate PNG menjadi format kompatibel sheets Withdraw untuk spreadsheets.
+              Konversi data transaksi withdraw operate PNG menjadi format kompatibel sheets Withdraw.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-emerald-400 group-hover:text-emerald-300">
               <span>Akses Tool</span>
@@ -65,7 +84,7 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Admin Power</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Konversi transaksi Admin Power Dashboard menjadi format kompatibel sheets Withdraw untuk spreadsheets.
+              Konversi data transaksi Admin Power Dashboard menjadi format kompatibel sheets Withdraw.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-violet-400 group-hover:text-violet-300">
               <span>Akses Tool</span>

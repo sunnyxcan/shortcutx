@@ -1,12 +1,12 @@
-// app/power/page.tsx
+// app/idn/page.tsx
 
 'use client';
 
 import { useState, useRef } from 'react';
-import { Play, Trash2, Copy, Check, FileText, ArrowLeft, ShieldCheck, Search } from 'lucide-react';
+import { Play, Trash2, Copy, Check, FileText, ArrowLeft, Wallet, UserCheck } from 'lucide-react';
 import Link from 'next/link';
 
-interface PowerTransaction {
+interface IdnTransaction {
   bank: string;
   account: string;
   username: string;
@@ -14,9 +14,9 @@ interface PowerTransaction {
   amount: number;
 }
 
-export default function PowerParser() {
+export default function IdnParser() {
   const [input, setInput] = useState('');
-  const [transactions, setTransactions] = useState<PowerTransaction[]>([]);
+  const [transactions, setTransactions] = useState<IdnTransaction[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ export default function PowerParser() {
     setHasProcessed(false);
 
     try {
-      const res = await fetch('/api/power', {
+      const res = await fetch('/api/idn', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ rawData: input })
@@ -73,17 +73,17 @@ export default function PowerParser() {
     <div className="flex h-screen w-full flex-col overflow-hidden bg-slate-950 text-slate-200 md:flex-row">
       <aside className="relative flex w-full flex-shrink-0 flex-col border-b border-slate-800 bg-slate-900/50 p-6 backdrop-blur-xl md:w-[400px] md:border-b-0 md:border-r">
         <div className="mb-8">
-          <Link href="/" className="group mb-6 inline-flex items-center gap-2 text-xs font-medium text-slate-500 transition-colors hover:text-violet-400">
+          <Link href="/" className="group mb-6 inline-flex items-center gap-2 text-xs font-medium text-slate-500 transition-colors hover:text-cyan-400">
             <ArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-1" />
             KEMBALI KE DASHBOARD
           </Link>
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-500 shadow-inner shadow-violet-500/20">
-              <ShieldCheck className="h-6 w-6" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500 shadow-inner shadow-cyan-500/20">
+              <Wallet className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">AutoWD <span className="text-violet-500">Power</span></h1>
-              <p className="text-xs text-slate-400">Parser AutoWD Power</p>
+              <h1 className="text-xl font-bold text-white">Withdraw <span className="text-cyan-500">IDN</span></h1>
+              <p className="text-xs text-slate-400">Parser Withdraw IDN</p>
             </div>
           </div>
         </div>
@@ -91,14 +91,14 @@ export default function PowerParser() {
         <div className="relative flex flex-1 flex-col">
           <div className="mb-2 flex items-center justify-between">
             <label className="text-xs font-semibold uppercase tracking-wider text-slate-500">Input Data</label>
-            <span className="text-[10px] text-slate-600">Sumber: Dashboard Power</span>
+            <span className="text-[10px] text-slate-600">Format: Withdraw IDN</span>
           </div>
           <textarea 
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-1 resize-none rounded-xl border border-slate-800 bg-black/40 p-4 font-mono text-xs leading-relaxed text-slate-300 outline-none placeholder:text-slate-700 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/50"
-            placeholder="Tempel data power mentah di sini..."
+            className="flex-1 resize-none rounded-xl border border-slate-800 bg-black/40 p-4 font-mono text-xs leading-relaxed text-slate-300 outline-none placeholder:text-slate-700 focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50"
+            placeholder="Tempel data IDN di sini..."
             spellCheck={false}
           />
         </div>
@@ -107,10 +107,10 @@ export default function PowerParser() {
           <button 
             onClick={handleProcess} 
             disabled={loading || !input.trim()} 
-            className="flex flex-[2] items-center justify-center gap-2 rounded-xl bg-violet-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-900/20 transition-all hover:bg-violet-500 hover:shadow-violet-900/40 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none cursor-pointer"
+            className="flex flex-[2] items-center justify-center gap-2 rounded-xl bg-cyan-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-cyan-900/20 transition-all hover:bg-cyan-500 hover:shadow-cyan-900/40 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none cursor-pointer"
           >
-            {loading ? <Search className="h-4 w-4 animate-spin" /> : <Play className="h-4 w-4 fill-current" />}
-            {loading ? 'MENGANALISIS...' : 'ANALISIS DATA'}
+            {loading ? <Wallet className="h-4 w-4 animate-spin" /> : <Play className="h-4 w-4 fill-current" />}
+            {loading ? 'MEMPROSES...' : 'PROSES DATA'}
           </button>
           <button 
             onClick={handleClear} 
@@ -128,20 +128,20 @@ export default function PowerParser() {
           <header className="mb-8 flex flex-shrink-0 items-end justify-between border-b border-slate-800 pb-6">
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-white">Hasil Parser</h2>
-              <p className="text-sm text-slate-500">Data admin power terstruktur</p>
+              <p className="text-sm text-slate-500">Format untuk Withdraw IDN</p>
             </div>
             {hasProcessed && (
-               <button 
-               onClick={handleCopy}
-               className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                 copied 
-                 ? 'border-violet-500/30 bg-violet-500/10 text-violet-400' 
-                 : 'border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300'
-               }`}
-             >
-               {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-               {copied ? 'BERHASIL DISALIN' : 'SALIN HASIL'}
-             </button>
+              <button 
+                onClick={handleCopy}
+                className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
+                  copied 
+                  ? 'border-cyan-500/30 bg-cyan-500/10 text-cyan-400' 
+                  : 'border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300'
+                }`}
+              >
+                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {copied ? 'BERHASIL DISALIN' : 'SALIN HASIL'}
+              </button>
             )}
           </header>
 
@@ -149,15 +149,15 @@ export default function PowerParser() {
             <div className="flex h-full flex-col gap-6 overflow-hidden">
               <div className="grid flex-shrink-0 grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
                 <div className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-5 backdrop-blur-sm">
-                  <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-violet-500/5 blur-2xl transition-all group-hover:bg-violet-500/10"></div>
-                  <span className="relative z-10 text-xs font-bold uppercase tracking-wider text-slate-500">Transaksi Ditemukan</span>
+                  <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-cyan-500/5 blur-2xl transition-all group-hover:bg-cyan-500/10"></div>
+                  <span className="relative z-10 text-xs font-bold uppercase tracking-wider text-slate-500">Total Transaksi</span>
                   <div className="relative z-10 mt-2 text-3xl font-bold text-white">{totalCount}</div>
                 </div>
                 
                 <div className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-5 backdrop-blur-sm">
-                   <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-purple-500/5 blur-2xl transition-all group-hover:bg-purple-500/10"></div>
+                   <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-blue-500/5 blur-2xl transition-all group-hover:bg-blue-500/10"></div>
                   <span className="relative z-10 text-xs font-bold uppercase tracking-wider text-slate-500">Total Nominal Withdraw</span>
-                  <div className="relative z-10 mt-2 text-3xl font-bold text-violet-400">{formatRupiah(totalAmount)}</div>
+                  <div className="relative z-10 mt-2 text-3xl font-bold text-cyan-400">{formatRupiah(totalAmount)}</div>
                 </div>
               </div>
 
@@ -181,8 +181,11 @@ export default function PowerParser() {
                           <td className="px-4 py-3 font-medium text-slate-300">{trx.bank}</td>
                           <td className="px-4 py-3 font-mono text-slate-400">{trx.account}</td>
                           <td className="px-4 py-3 text-slate-400">{trx.username}</td>
-                          <td className="px-4 py-3 text-slate-300 uppercase">{trx.realname}</td>
-                          <td className="px-4 py-3 text-right font-mono font-medium text-violet-400">{formatRupiah(trx.amount)}</td>
+                          <td className="px-4 py-3 text-slate-300 uppercase flex items-center gap-2">
+                             <UserCheck className="w-3 h-3 text-cyan-500/50" />
+                             {trx.realname}
+                          </td>
+                          <td className="px-4 py-3 text-right font-mono font-medium text-cyan-400">{formatRupiah(trx.amount)}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -195,8 +198,8 @@ export default function PowerParser() {
               <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-900 shadow-inner">
                 <FileText className="h-10 w-10 text-slate-700" />
               </div>
-              <h3 className="text-lg font-medium text-slate-300">Siap Audit Data</h3>
-              <p className="mt-2 max-w-xs text-sm text-slate-500">Tempel data dashboard Power di sidebar untuk memulai analisis.</p>
+              <h3 className="text-lg font-medium text-slate-300">Menunggu Input</h3>
+              <p className="mt-2 max-w-xs text-sm text-slate-500">Tempel data IDN (3 baris per trx) untuk menghasilkan format auto-payout.</p>
             </div>
           )}
         </div>

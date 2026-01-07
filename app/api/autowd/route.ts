@@ -1,4 +1,4 @@
-// app/api/wdoperate/route.ts
+// app/api/autowd/route.ts
 
 import { NextResponse } from 'next/server';
 

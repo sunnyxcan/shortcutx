@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </Link>
 
-        <Link href="/wdoperate" className="group relative block">
+        <Link href="/autowd" className="group relative block">
           <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-b from-emerald-500/20 to-transparent opacity-0 transition duration-300 group-hover:opacity-100 blur-sm"></div>
           <div className="relative flex h-full flex-col items-start rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-emerald-900/20">
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 shadow-inner shadow-emerald-500/20 transition-transform duration-300 group-hover:scale-110 group-hover:bg-emerald-500/20 group-hover:text-emerald-300">

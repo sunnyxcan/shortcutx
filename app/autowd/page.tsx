@@ -1,4 +1,4 @@
-// app/wdoperate/page.tsx
+// app/autowd/page.tsx
 
 'use client';
 
@@ -82,8 +82,8 @@ export default function AutoWDParser() {
               <Layers className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">AutoWD <span className="text-emerald-500">Admin</span></h1>
-              <p className="text-xs text-slate-400">Parser AutoWD Admin</p>
+              <h1 className="text-xl font-bold text-white">Withdraw Operate <span className="text-emerald-500">PNG</span></h1>
+              <p className="text-xs text-slate-400">Parser Withdraw Operate PNG</p>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function AutoWDParser() {
         <div className="relative flex flex-1 flex-col">
           <div className="mb-2 flex items-center justify-between">
             <label className="text-xs font-semibold uppercase tracking-wider text-slate-500">Input Data</label>
-            <span className="text-[10px] text-slate-600">Format: Riwayat AutoWD</span>
+            <span className="text-[10px] text-slate-600">Format: Withdraw Operate PNG</span>
           </div>
           <textarea 
             ref={inputRef}
@@ -128,7 +128,7 @@ export default function AutoWDParser() {
           <header className="mb-8 flex flex-shrink-0 items-end justify-between border-b border-slate-800 pb-6">
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-white">Hasil Parser</h2>
-              <p className="text-sm text-slate-500">Format untuk Admin AutoWD</p>
+              <p className="text-sm text-slate-500">Format untuk Withdraw Operate PNG</p>
             </div>
             {hasProcessed && (
               <button 

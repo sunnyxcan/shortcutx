@@ -26,15 +26,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "ShortcutX - Multi Parser Tools Dashboard",
-  description: "Platform terpadu untuk parsing dan analisis data mutasi BCA, Withdraw Operate, dan Admin Power dengan presisi tinggi.",
-  keywords: ["Parser", "BCA", "Mutasi", "Withdraw Operate", "Admin Power", "Tools", "ShortcutX"],
+  description: "Platform terpadu untuk parsing dan analisis data mutasi BCA, Withdraw IDN, Withdraw Operate, dan Admin Power dengan presisi tinggi.",
+  keywords: ["Parser", "BCA", "Mutasi", "Withdraw IDN", "Withdraw Operate", "Admin Power", "Tools", "ShortcutX"],
   authors: [{ name: "ShortcutX Team" }],
   icons: {
     icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-4l-3 9L9 3l-3 9H2'/%3E%3C/svg%3E",
   },
   openGraph: {
     title: "ShortcutX - Multi Parser Tools Dashboard",
-    description: "Platform terpadu untuk parsing dan analisis data mutasi BCA, Withdraw Operate, dan Admin Power dengan presisi tinggi.",
+    description: "Platform terpadu untuk parsing dan analisis data mutasi BCA, Withdraw IDN, Withdraw Operate, dan Admin Power dengan presisi tinggi.",
     type: "website",
     siteName: "ShortcutX",
   },

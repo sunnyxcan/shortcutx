@@ -15,7 +15,7 @@ export default function Home() {
           ShortcutX <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Dashboard</span>
         </h1>
         <p className="text-lg leading-relaxed text-slate-400">
-          Shortcut tools untuk mutasi BCA dan AutoWD Admin & Power dalam satu dashboard terintegrasi.
+          Shortcut tools untuk mutasi BCA dan Withdraw Operate & Power dalam satu dashboard terintegrasi.
         </p>
       </div>
 
@@ -28,7 +28,7 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Mutasi BCA</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Parse data mutasi rekening koran BCA menjadi format JSON/CSV yang terstruktur untuk rekonsiliasi otomatis.
+              Parse data mutasi rekening koran BCA menjadi format spreadsheets yang terstruktur untuk rekonsiliasi otomatis.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-blue-400 group-hover:text-blue-300">
               <span>Akses Tool</span>
@@ -43,9 +43,9 @@ export default function Home() {
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 shadow-inner shadow-emerald-500/20 transition-transform duration-300 group-hover:scale-110 group-hover:bg-emerald-500/20 group-hover:text-emerald-300">
               <Layers className="h-7 w-7" />
             </div>
-            <h2 className="mb-3 text-xl font-bold text-slate-100">AutoWD Admin</h2>
+            <h2 className="mb-3 text-xl font-bold text-slate-100">PNG Withdraw Operate</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Konversi history withdrawal menjadi format kompatibel AutoWD Admin untuk pemrosesan batch payout.
+              Konversi withdraw operate menjadi format kompatibel Withdraw Operate untuk spreadsheets.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-emerald-400 group-hover:text-emerald-300">
               <span>Akses Tool</span>
@@ -62,7 +62,7 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Admin Power</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Analisis mendalam log transaksi Admin Power Dashboard untuk audit keamanan dan tracking anomali.
+              Konversi transaksi Admin Power Dashboard menjadi format kompatibel Withdraw untuk spreadsheets.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-violet-400 group-hover:text-violet-300">
               <span>Akses Tool</span>
@@ -73,7 +73,7 @@ export default function Home() {
       </div>
 
       <div className="mt-20 flex items-center gap-4 text-sm text-slate-600">
-        <span>&copy; {new Date().getFullYear()} ShortcutX Team</span>
+        <span>&copy; {new Date().getFullYear()} ShortcutX</span>
         <span className="h-1 w-1 rounded-full bg-slate-700"></span>
         <span>Internal Use Only</span>
       </div>

@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { CreditCard, Layers, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function Home() {
+  const currentYear = new Date().getFullYear();
+  const startYear = 2026;
+
   return (
     <div className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center p-6 sm:p-12">
       <div className="mb-16 max-w-2xl text-center">
@@ -28,7 +31,7 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Mutasi BCA</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Konversi data mutasi rekening BCA menjadi format kompatibel Deposit untuk spreadsheets.
+              Konversi data mutasi rekening BCA menjadi format kompatibel sheets Deposit untuk spreadsheets.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-blue-400 group-hover:text-blue-300">
               <span>Akses Tool</span>
@@ -45,7 +48,7 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Withdraw Operate PNG</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Konversi withdraw operate menjadi format kompatibel Withdraw Operate untuk spreadsheets.
+              Konversi withdraw operate PNG menjadi format kompatibel sheets Withdraw untuk spreadsheets.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-emerald-400 group-hover:text-emerald-300">
               <span>Akses Tool</span>
@@ -62,7 +65,7 @@ export default function Home() {
             </div>
             <h2 className="mb-3 text-xl font-bold text-slate-100">Admin Power</h2>
             <p className="mb-8 flex-grow text-sm leading-relaxed text-slate-400">
-              Konversi transaksi Admin Power Dashboard menjadi format kompatibel Withdraw untuk spreadsheets.
+              Konversi transaksi Admin Power Dashboard menjadi format kompatibel sheets Withdraw untuk spreadsheets.
             </p>
             <div className="flex w-full items-center text-sm font-semibold text-violet-400 group-hover:text-violet-300">
               <span>Akses Tool</span>
@@ -73,7 +76,9 @@ export default function Home() {
       </div>
 
       <div className="mt-20 flex items-center gap-4 text-sm text-slate-600">
-        <span>&copy; {new Date().getFullYear()} ShortcutX</span>
+        <span>
+          &copy; {currentYear > startYear ? `${startYear} - ${currentYear}` : currentYear} ShortcutX
+        </span>
         <span className="h-1 w-1 rounded-full bg-slate-700"></span>
         <span>Internal Use Only</span>
       </div>

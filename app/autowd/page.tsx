@@ -63,7 +63,7 @@ export default function AutoWDParser() {
 
   const handleCopy = () => {
     if (transactions.length === 0) return;
-    const text = transactions.map(t => `${t.bank}\t'${t.account}\t${t.username}\t${t.realname}\t${t.amount}`).join('\n');
+    const text = transactions.map(t => `${t.bank}\t${t.account}\t${t.username}\t${t.realname}\t${t.amount}`).join('\n');
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

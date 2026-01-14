@@ -20,7 +20,8 @@ export default function IdnParser() {
   const [totalCount, setTotalCount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copiedNormal, setCopiedNormal] = useState(false);
+  const [copiedEwallet, setCopiedEwallet] = useState(false);
   const [hasProcessed, setHasProcessed] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -63,10 +64,40 @@ export default function IdnParser() {
 
   const handleCopy = () => {
     if (transactions.length === 0) return;
-    const text = transactions.map(t => `${t.bank}\t${t.account}\t${t.username}\t${t.realname}\t${t.amount}`).join('\n');
+
+    const text = transactions
+      .map(t => `${t.bank}\t${t.account}\t${t.username}\t${t.realname}\t${t.amount}`)
+      .join('\n');
+
     navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedNormal(true);
+    setTimeout(() => setCopiedNormal(false), 2000);
+  };
+
+  const handleCopyEwallet = () => {
+    if (transactions.length === 0) return;
+
+    const bankCodes: Record<string, string> = {
+      DANA: '3901',
+      OVO: '39358',
+      LINKAJA: '09110',
+      GOPAY: '70001',
+    };
+
+    const text = transactions
+      .map(t => {
+        const bankUpper = t.bank.toUpperCase();
+        const accountWithCode = bankCodes[bankUpper]
+          ? `${bankCodes[bankUpper]}${t.account}`
+          : t.account;
+
+        return `${t.bank}\t${accountWithCode}\t${t.username}\t${t.realname}\t${t.amount}`;
+      })
+      .join('\n');
+
+    navigator.clipboard.writeText(text);
+    setCopiedEwallet(true);
+    setTimeout(() => setCopiedEwallet(false), 2000);
   };
 
   return (
@@ -131,17 +162,31 @@ export default function IdnParser() {
               <p className="text-sm text-slate-500">Format untuk Withdraw IDN</p>
             </div>
             {hasProcessed && (
-              <button 
-                onClick={handleCopy}
-                className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
-                  copied 
-                  ? 'border-cyan-500/30 bg-cyan-500/10 text-cyan-400' 
-                  : 'border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300'
-                }`}
-              >
-                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                {copied ? 'BERHASIL DISALIN' : 'SALIN HASIL'}
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleCopy}
+                  className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
+                    copiedNormal
+                      ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400'
+                      : 'border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300'
+                  }`}
+                >
+                  {copiedNormal ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  {copiedNormal ? 'BERHASIL DISALIN' : 'SALIN HASIL'}
+                </button>
+
+                <button
+                  onClick={handleCopyEwallet}
+                  className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
+                    copiedEwallet
+                      ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400'
+                      : 'border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300'
+                  }`}
+                >
+                  {copiedEwallet ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  {copiedEwallet ? 'BERHASIL DISALIN' : 'SALIN HASIL + KODE'}
+                </button>
+              </div>
             )}
           </header>
 
